@@ -8,14 +8,18 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Menu, type: :model do
-  it 'has a valid factory' do
+  it "has a valid factory" do
     expect(build(:menu)).to be_valid
   end
 
-  describe 'validations' do
+  describe "associations" do
+    it { should have_many(:menu_items).dependent(:destroy) }
+  end
+
+  describe "validations" do
     it { should validate_presence_of(:name) }
   end
 end
