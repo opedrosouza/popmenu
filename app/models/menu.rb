@@ -19,7 +19,7 @@
 #
 class Menu < ApplicationRecord
   belongs_to :restaurant, inverse_of: :menus
-  has_many :menu_items, inverse_of: :menu, dependent: :destroy
+  has_and_belongs_to_many :menu_items
 
   validates :name, presence: true
 end

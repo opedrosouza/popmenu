@@ -8,19 +8,14 @@
 #  price       :decimal(10, 2)   default(0.0), not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  menu_id     :integer          not null
 #
 # Indexes
 #
-#  index_menu_items_on_menu_id  (menu_id)
-#  index_menu_items_on_name     (name) UNIQUE
-#
-# Foreign Keys
-#
-#  menu_id  (menu_id => menus.id)
+#  index_menu_items_on_name  (name) UNIQUE
 #
 class MenuItem < ApplicationRecord
-  belongs_to :menu, inverse_of: :menu_items
+  has_and_belongs_to_many :menus
+
   validates :name, presence: true, uniqueness: true
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
 end

@@ -8,16 +8,10 @@
 #  price       :decimal(10, 2)   default(0.0), not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  menu_id     :integer          not null
 #
 # Indexes
 #
-#  index_menu_items_on_menu_id  (menu_id)
-#  index_menu_items_on_name     (name) UNIQUE
-#
-# Foreign Keys
-#
-#  menu_id  (menu_id => menus.id)
+#  index_menu_items_on_name  (name) UNIQUE
 #
 require "rails_helper"
 
@@ -27,7 +21,7 @@ RSpec.describe MenuItem, type: :model do
   end
 
   describe "associations" do
-    it { should belong_to(:menu) }
+    it { should have_and_belong_to_many(:menus) }
   end
 
   describe "validations" do

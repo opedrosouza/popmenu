@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "Menus::MenuItemsController", type: :request do
   describe "GET /api/menus/:menu_id/menu_items" do
-    let(:menu) { create(:menu, :with_menu_items) }
-    let(:other_menu) { create(:menu, :with_menu_items) }
+    let(:menu) { create(:menu, :with_menu_item) }
+    let(:other_menu) { create(:menu, :with_menu_item) }
 
     before do
       get menu_menu_items_path(menu)
@@ -23,8 +23,8 @@ RSpec.describe "Menus::MenuItemsController", type: :request do
   end
 
   describe "GET /api/menus/:menu_id/menu_items/:id" do
-    let(:menu) { create(:menu) }
-    let(:menu_item) { create(:menu_item, menu: menu) }
+    let(:menu) { create(:menu, :with_menu_item) }
+    let(:menu_item) { menu.menu_items.first }
 
     before { get menu_menu_item_path(menu, menu_item) }
 
@@ -62,7 +62,7 @@ RSpec.describe "Menus::MenuItemsController", type: :request do
     end
 
     it "returns the new menu item" do
-      expect(json_body).to eq(serialized(menu.menu_items.first, MenuItemSerializer))
+      expect(json_body).to eq(serialized(menu.menu_items.reload.first, MenuItemSerializer))
     end
 
     context "when the menu does not exist" do
@@ -91,7 +91,7 @@ RSpec.describe "Menus::MenuItemsController", type: :request do
   end
 
   describe "PUT /api/menus/:menu_id/menu_items/:id" do
-    let(:menu) { create(:menu, :with_menu_items) }
+    let(:menu) { create(:menu, :with_menu_item) }
     let(:menu_item) { menu.menu_items.first }
     let(:new_menu_item_params) { attributes_for(:menu_item) }
 
@@ -135,8 +135,8 @@ RSpec.describe "Menus::MenuItemsController", type: :request do
   end
 
   describe "DELETE /api/menus/:menu_id/menu_items/:id" do
-    let(:menu) { create(:menu) }
-    let(:menu_item) { create(:menu_item, menu: menu) }
+    let(:menu) { create(:menu, :with_menu_item) }
+    let(:menu_item) { menu.menu_items.first }
 
     before { delete menu_menu_item_path(menu, menu_item) }
 

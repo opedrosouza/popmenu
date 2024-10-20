@@ -25,3 +25,7 @@ Here I'll explain why I decided to do one thing or other when doing some progres
   - Since the restaurant must exist to create menus it break existent `MenusController`, so I had to adjust a little bit to make it work, but will create a new controller to be scoped by restaurant as I did for `menu_items` in next commit.
 
 - The uniqueness name validation for `menu_item` could be scoped by `restaurant_id` but it would add more complexity right now, I'll focus on get the basics requirements working and later on I can may get back here and try to improve things.
+
+- I decided to use the `has_and_belongs_to_many` association to make the relationship between `menus` and `menu_items` for few reasons:
+  - It's simplier, and later on if we need to have more control or to do something with the join table we can easialy change the code to use a new model and make the usage of the `has_many through`.
+  - I always try to start with the simplier solutions first and if needed I can refactor for something more robust when needed.

@@ -10,6 +10,7 @@ class Menus::MenuItemsController < ApplicationController
   def create
     @menu_item = menu.menu_items.new(menu_item_params)
     if @menu_item.save
+      @menu_item.menus << menu
       render json: @menu_item, status: :created
     else
       render json: { errors: @menu_item.errors.full_messages }, status: :unprocessable_entity

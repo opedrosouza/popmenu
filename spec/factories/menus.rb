@@ -22,11 +22,14 @@ FactoryBot.define do
     name { Faker::Lorem.word }
     description { Faker::Lorem.sentence }
     restaurant
+    menu_items { [] }
   end
 
-  trait :with_menu_items do
+  trait :with_menu_item do
     after(:create) do |menu|
-      create_list(:menu_item, 3, menu: menu)
+      create(:menu_item) do |menu_item|
+        menu.menu_items << menu_item
+      end
     end
   end
 end

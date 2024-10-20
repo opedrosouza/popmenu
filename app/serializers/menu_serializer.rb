@@ -18,8 +18,11 @@
 #  restaurant_id  (restaurant_id => restaurants.id)
 #
 class MenuSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description
+  attributes :id, :name, :description, :menu_items
 
   belongs_to :restaurant
-  has_many :menu_items, serializer: MenuItemSerializer
+
+  def menu_items
+    ActiveModel::SerializableResource.new(object.menu_items, each_serializer: MenuItemSerializer).serializable_hash
+  end
 end
