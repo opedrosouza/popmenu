@@ -13,4 +13,10 @@ FactoryBot.define do
     name { Faker::Lorem.word }
     description { Faker::Lorem.sentence }
   end
+
+  trait :with_menu_items do
+    after(:create) do |menu|
+      create_list(:menu_item, 3, menu: menu)
+    end
+  end
 end
