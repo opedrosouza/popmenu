@@ -1,0 +1,6 @@
+### Returns all restaurants with menus and menu_items
+GET http://localhost:3000/api/restaurants
+
+### Returns specific restaurant with menus and menu_items
+GET http://localhost:3000/api/restaurants/1
+

@@ -1,9 +1,9 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+if Rails.env.local?
+  FactoryBot.create_list(:menu_item, 6)
+
+  FactoryBot.create_list(:restaurant, 3).each do |restaurant|
+    FactoryBot.create_list(:menu, 2, restaurant: restaurant).each do |menu|
+      menu.menu_items << MenuItem.all.sample(3)
+    end
+  end
+end
