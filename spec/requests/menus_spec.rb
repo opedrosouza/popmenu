@@ -41,7 +41,8 @@ RSpec.describe "MenusController", type: :request do
   end
 
   describe "POST /api/menus" do
-    let(:menu_params) { attributes_for(:menu) }
+    let(:restaurant) { create(:restaurant) }
+    let(:menu_params) { attributes_for(:menu).merge(restaurant_id: restaurant.id) }
 
     before do
       post menus_path, params: { menu: menu_params }
@@ -60,7 +61,7 @@ RSpec.describe "MenusController", type: :request do
     end
 
     context "when the menu is invalid" do
-      let(:menu_params) { attributes_for(:menu, name: nil) }
+      let(:menu_params) { attributes_for(:menu, name: nil).merge(restaurant_id: restaurant.id) }
 
       it "returns http unprocessable entity" do
         expect(response).to have_http_status(:unprocessable_entity)

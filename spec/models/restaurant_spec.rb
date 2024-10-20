@@ -14,6 +14,10 @@ RSpec.describe Restaurant, type: :model do
     expect(build(:restaurant)).to be_valid
   end
 
+  describe "associations" do
+    it { should have_many(:menus) }
+  end
+
   describe "validations" do
     it { should validate_presence_of(:name) }
   end
