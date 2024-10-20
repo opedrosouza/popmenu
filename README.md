@@ -1,24 +1,17 @@
-# README
+# POPMENU TEST
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple Rails API as part of popmenu test
 
-Things you may want to cover:
+## Tech and Versions
+- Ruby 3.3.4
+- Rails 7.2.1
+- Sqlite 3
+- Docker 27
 
-* Ruby version
 
-* System dependencies
+## Testing
+I decided to use rspec as test framework because I'm more familiar with it and I also think it's a bit easear to read the specs (probably because I have more experience with haha)
 
-* Configuration
+## Thinking out loud
+Here I'll explain why I decided to do one thing or other when doing some progress on the test
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
