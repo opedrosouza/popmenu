@@ -13,6 +13,7 @@
 # Indexes
 #
 #  index_menu_items_on_menu_id  (menu_id)
+#  index_menu_items_on_name     (name) UNIQUE
 #
 # Foreign Keys
 #

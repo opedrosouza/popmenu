@@ -23,3 +23,5 @@ Here I'll explain why I decided to do one thing or other when doing some progres
   - If this project was in production my migration shouldn't force the `restaurant_id`, since it would break the migration when run on a DB that already has data on it. And on this same thought it would be required to create a task which would migrate all `menus` without `restaurant`, and later on run a new migration to make the `restaurant_id` required.
     - So since it's only in dev mode I decided to keep it more simple, otherwise I would have to create at least two new files that wouldn't be necessary in dev mode.
   - Since the restaurant must exist to create menus it break existent `MenusController`, so I had to adjust a little bit to make it work, but will create a new controller to be scoped by restaurant as I did for `menu_items` in next commit.
+
+- The uniqueness name validation for `menu_item` could be scoped by `restaurant_id` but it would add more complexity right now, I'll focus on get the basics requirements working and later on I can may get back here and try to improve things.

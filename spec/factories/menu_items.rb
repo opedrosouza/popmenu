@@ -13,6 +13,7 @@
 # Indexes
 #
 #  index_menu_items_on_menu_id  (menu_id)
+#  index_menu_items_on_name     (name) UNIQUE
 #
 # Foreign Keys
 #
@@ -20,7 +21,7 @@
 #
 FactoryBot.define do
   factory :menu_item do
-    name { Faker::Food.dish }
+    name { "#{Faker::Food.dish} #{SecureRandom.alphanumeric(6)}" }
     description { Faker::Food.description }
     price { Faker::Number.decimal }
     menu

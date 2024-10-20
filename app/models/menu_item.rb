@@ -13,6 +13,7 @@
 # Indexes
 #
 #  index_menu_items_on_menu_id  (menu_id)
+#  index_menu_items_on_name     (name) UNIQUE
 #
 # Foreign Keys
 #
@@ -20,6 +21,6 @@
 #
 class MenuItem < ApplicationRecord
   belongs_to :menu, inverse_of: :menu_items
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
 end
