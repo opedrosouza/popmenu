@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   scope :api, defaults: { format: :json } do
     resources :menus
+    resources :menu_items, only: %i[index show]
   end
 end

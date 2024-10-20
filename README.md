@@ -15,3 +15,6 @@ I decided to use rspec as test framework because I'm more familiar with it and I
 ## Thinking out loud
 Here I'll explain why I decided to do one thing or other when doing some progress on the test
 
+- Decided to use the `active_model_serializers` to serializer the models to be rendered as json on responses because in the benchmarks it seems to be faster and I think it's more easy to read the code than look for the jbuilder files (personal opnion here)
+
+
