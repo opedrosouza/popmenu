@@ -3,5 +3,6 @@ class ConvertService < Actor
   input :data, type: Hash, allow_nil: true, default: -> { {} }
 
   play LoadDataService, if: ->(actor) { actor.import.present? && actor.data.blank? }
-  play ImportRestaurantsService
+  play ImportRestaurantsService,
+  ImportMenusService
 end
