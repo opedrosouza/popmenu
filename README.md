@@ -29,3 +29,5 @@ Here I'll explain why I decided to do one thing or other when doing some progres
 - I decided to use the `has_and_belongs_to_many` association to make the relationship between `menus` and `menu_items` for few reasons:
   - It's simplier, and later on if we need to have more control or to do something with the join table we can easialy change the code to use a new model and make the usage of the `has_many through`.
   - I always try to start with the simplier solutions first and if needed I can refactor for something more robust when needed.
+
+- I decided to create the `import` model and using the `active_storage` to store the files sent through `/api/imports` endpoint so this way we can process them in better way later.
