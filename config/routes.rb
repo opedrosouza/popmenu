@@ -10,5 +10,7 @@ Rails.application.routes.draw do
     end
 
     resources :menu_items, only: %i[index show]
+
+    resources :imports, only: %i[create]
   end
 end
