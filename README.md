@@ -31,3 +31,6 @@ Here I'll explain why I decided to do one thing or other when doing some progres
   - I always try to start with the simplier solutions first and if needed I can refactor for something more robust when needed.
 
 - I decided to create the `import` model and using the `active_storage` to store the files sent through `/api/imports` endpoint so this way we can process them in better way later.
+
+- I decided to use the `actor` gem to create the services classes which will be responsible to convert the JSON file into the active_record objects that we need.
+  - Using this pattern we can easily split our logic in multiple services and will be more easy to maintain and add more functionality as we need.

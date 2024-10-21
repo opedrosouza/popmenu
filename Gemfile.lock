@@ -261,6 +261,8 @@ GEM
       rubocop-rails
     ruby-progressbar (1.13.0)
     securerandom (0.3.1)
+    service_actor (3.9.4)
+      zeitwerk (>= 1.0)
     shoulda-matchers (6.4.0)
       activesupport (>= 5.2.0)
     simplecov (0.22.0)
@@ -322,6 +324,7 @@ DEPENDENCIES
   rails-controller-testing (~> 1.0, >= 1.0.5)
   rspec-rails (~> 7.0, >= 7.0.1)
   rubocop-rails-omakase
+  service_actor (~> 3.9, >= 3.9.4)
   shoulda-matchers (~> 6.4)
   simplecov (~> 0.22.0)
   sqlite3 (>= 1.4)

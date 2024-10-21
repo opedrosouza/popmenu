@@ -6,6 +6,7 @@ gem "puma", ">= 5.0"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 gem "active_model_serializers", "~> 0.10.14"
+gem "service_actor", "~> 3.9", ">= 3.9.4"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"

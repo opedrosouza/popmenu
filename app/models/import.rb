@@ -11,6 +11,10 @@ class Import < ApplicationRecord
   validates :file, presence: true
   validate :correct_file_mime_type
 
+  def json_read
+    JSON.parse(file.download).with_indifferent_access
+  end
+
   private
 
   def correct_file_mime_type
