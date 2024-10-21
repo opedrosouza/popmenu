@@ -34,3 +34,7 @@ Here I'll explain why I decided to do one thing or other when doing some progres
 
 - I decided to use the `actor` gem to create the services classes which will be responsible to convert the JSON file into the active_record objects that we need.
   - Using this pattern we can easily split our logic in multiple services and will be more easy to maintain and add more functionality as we need.
+
+- Ok, this is interesting, when working on the `ImportMenuItemsService` I took a good look about how the `menu_items` data can be passed through the JSON file, and realized that I'll need to do some refactoring in the `MenuItem` model/table and here is my thoughs on the refactoring I need to make:
+  - A `menu_item` should `belongs_to` a `restaurant`
+  - I need to create a new model to make the many to many relationship between menus and menu_items, this way I can move the `price` column to this new model, so a `menu_item` will be able to have different prices (this will be like a `menu_item_variant` which each variant will have it's own different properties while being maped to the same `menu_item`)

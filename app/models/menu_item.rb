@@ -14,7 +14,8 @@
 #  index_menu_items_on_name  (name) UNIQUE
 #
 class MenuItem < ApplicationRecord
-  has_and_belongs_to_many :menus
+  has_many :menu_item_variants, inverse_of: :menu_item, dependent: :destroy
+  has_many :menus, through: :menu_item_variants
 
   validates :name, presence: true, uniqueness: true
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }

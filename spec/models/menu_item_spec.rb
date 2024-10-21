@@ -21,7 +21,8 @@ RSpec.describe MenuItem, type: :model do
   end
 
   describe "associations" do
-    it { should have_and_belong_to_many(:menus) }
+    it { should have_many(:menu_item_variants).dependent(:destroy) }
+    it { should have_many(:menus).through(:menu_item_variants) }
   end
 
   describe "validations" do

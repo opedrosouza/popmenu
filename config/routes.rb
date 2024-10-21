@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :restaurants, only: %i[index show]
 
     resources :menus do
-      resources :menu_items, controller: "menus/menu_items"
+      resources :menu_items, controller: "menus/menu_items", only: %i[index show]
     end
 
     resources :menu_items, only: %i[index show]

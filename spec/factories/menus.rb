@@ -27,9 +27,7 @@ FactoryBot.define do
 
   trait :with_menu_item do
     after(:create) do |menu|
-      create(:menu_item) do |menu_item|
-        menu.menu_items << menu_item
-      end
+      create(:menu_item_variant, menu: menu)
     end
   end
 end
