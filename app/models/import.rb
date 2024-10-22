@@ -11,6 +11,8 @@ class Import < ApplicationRecord
   validates :file, presence: true
   validate :correct_file_mime_type
 
+  after_commit :import_data, on: :create, if: -> { file.attached? }
+
   def json_read
     JSON.parse(file.download).with_indifferent_access
   end
@@ -21,5 +23,9 @@ class Import < ApplicationRecord
     if file.attached? && !file.content_type.match("application/json")
       errors.add(:file, "must be a JSON file")
     end
+  end
+
+  def import_data
+    ImportDataJob.perform_later(import: self)
   end
 end

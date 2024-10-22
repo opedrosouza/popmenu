@@ -44,3 +44,5 @@ Here I'll explain why I decided to do one thing or other when doing some progres
 - I have removed the create/update/destroy actions from the `menus/menu_items_controller` few commits earlier, planning to get back to there later.
 
 - I'm not liking to much the approach of being interating through the arrays and doing to much queries, I think I'll refactor the code to use something like `insert_all` to create data in db and use more the `where` clause to retrieve data, this way we can have faster queries. But will take a better look later on, will focus on have everything in place for now.
+
+- Introducing the `ImportDataJob`, so I realized that when we upload the JSON data through the endpoint will be a lot better to process it async, so I'm calling the `ImportDataJob.perform_later` in the `after_commit` callback in the `import` model, so this way everytime an `import` model/record gets created successfully this job will be enqueed to be processed async, and will convert all the data in a good way.
