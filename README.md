@@ -8,9 +8,22 @@ This is a simple Rails API as part of popmenu test
 - Sqlite 3
 - Docker 27
 
-
 ## Testing
 I decided to use rspec as test framework because I'm more familiar with it and I also think it's a bit easear to read the specs (probably because I have more experience with haha)
+
+## Project Setup
+**OBS: You'll need to have installed on your machine `Ruby 3.3.4` and `SQlite3`**
+
+### Steps:
+1. Clone this repo to your machine
+2. Inside the project folder execute `bin/setup` into your terminal
+
+### Running the Convertion Tool:
+You will need to copy the path of where is your file located on your computer and than just run the following command on your terminal:
+
+*obs: replace the **<< file_path >>** with your file_path*
+
+> rails 'data:import_restaurants_data[<< file_path >>]'
 
 ## Thinking out loud
 Here I'll explain why I decided to do one thing or other when doing some progress on the test
