@@ -5,7 +5,6 @@
 #  id          :integer          not null, primary key
 #  description :string
 #  name        :string           not null
-#  price       :decimal(10, 2)   default(0.0), not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
@@ -17,7 +16,5 @@ FactoryBot.define do
   factory :menu_item do
     name { "#{Faker::Food.dish} #{SecureRandom.alphanumeric(6)}" }
     description { Faker::Food.description }
-    price { Faker::Number.decimal }
-    menus { [] }
   end
 end

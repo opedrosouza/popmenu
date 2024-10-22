@@ -38,3 +38,9 @@ Here I'll explain why I decided to do one thing or other when doing some progres
 - Ok, this is interesting, when working on the `ImportMenuItemsService` I took a good look about how the `menu_items` data can be passed through the JSON file, and realized that I'll need to do some refactoring in the `MenuItem` model/table and here is my thoughs on the refactoring I need to make:
   - A `menu_item` should `belongs_to` a `restaurant`
   - I need to create a new model to make the many to many relationship between menus and menu_items, this way I can move the `price` column to this new model, so a `menu_item` will be able to have different prices (this will be like a `menu_item_variant` which each variant will have it's own different properties while being maped to the same `menu_item`)
+
+- Introduced the builders folder, so I realize that having a class to build the data the way we want using the active_model validators can be good, so deicided to implement this builder, honestly I'm not so super happy with the way the code is but it's working for now haha.
+
+- I have removed the create/update/destroy actions from the `menus/menu_items_controller` few commits earlier, planning to get back to there later.
+
+- I'm not liking to much the approach of being interating through the arrays and doing to much queries, I think I'll refactor the code to use something like `insert_all` to create data in db and use more the `where` clause to retrieve data, this way we can have faster queries. But will take a better look later on, will focus on have everything in place for now.

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_21_214920) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_22_003716) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -45,7 +45,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_21_214920) do
   end
 
   create_table "menu_item_variants", force: :cascade do |t|
-    t.decimal "price"
+    t.decimal "price", precision: 10, scale: 2, null: false
     t.integer "menu_item_id", null: false
     t.integer "menu_id", null: false
     t.datetime "created_at", null: false
@@ -57,7 +57,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_21_214920) do
   create_table "menu_items", force: :cascade do |t|
     t.string "name", null: false
     t.string "description"
-    t.decimal "price", precision: 10, scale: 2, default: "0.0", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_menu_items_on_name", unique: true

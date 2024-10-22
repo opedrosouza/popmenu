@@ -4,5 +4,6 @@ class ConvertService < Actor
 
   play LoadDataService, if: ->(actor) { actor.import.present? && actor.data.blank? }
   play ImportRestaurantsService,
-  ImportMenusService
+  ImportMenusService,
+  ImportMenuItemsService
 end

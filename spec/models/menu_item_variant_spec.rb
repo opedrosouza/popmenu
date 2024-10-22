@@ -3,7 +3,7 @@
 # Table name: menu_item_variants
 #
 #  id           :integer          not null, primary key
-#  price        :decimal(, )
+#  price        :decimal(10, 2)   not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  menu_id      :integer          not null
