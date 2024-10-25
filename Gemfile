@@ -12,7 +12,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
-  gem "factory_bot_rails", "~> 6.4", ">= 6.4.3"
+  gem "factory_bot_rails", "~> 6.4"
   gem "faker", "~> 3.4", ">= 3.4.2"
 end
 
