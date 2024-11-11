@@ -18,7 +18,7 @@ end
 
 group :test do
   gem "database_cleaner-active_record", "~> 2.2"
-  gem "rspec-rails", "~> 7.0", ">= 7.0.1"
+  gem "rspec-rails", "~> 7.1"
   gem "shoulda-matchers", "~> 6.4"
   gem "simplecov", "~> 0.22.0"
 end
